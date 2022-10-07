@@ -11,22 +11,21 @@ import java.util.List;
 
 @Service
 public class UploadServiceImpl implements UploadService {
-
     @Autowired
     private UploadMapper uploadMapper;
 
     @Override
-    public List<UploadFiles> getUploadList(int board_seq) throws Exception {
-        return uploadMapper.getUploadList(board_seq);
+    public List<UploadFiles> getUploadList(int boardSeq) throws Exception {
+        return uploadMapper.getUploadList(boardSeq);
     }
 
     @Override
-    public UploadFiles getUploadDetail(int img_seq) throws Exception {
-        return uploadMapper.getUploadDetail(img_seq);
+    public UploadFiles getUploadDetail(int imgSeq) throws Exception {
+        return uploadMapper.getUploadDetail(imgSeq);
     }
 
     @Override
-    public int insertUpload(UploadFiles uploadFiles) throws Exception {
+    public int insertUpload(UploadFiles uploadFiles){
         return uploadMapper.insertUpload(uploadFiles);
     }
 

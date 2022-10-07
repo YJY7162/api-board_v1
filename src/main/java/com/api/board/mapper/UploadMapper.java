@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface UploadMapper {
 
-    public List<UploadFiles> getUploadList(int board_seq) throws Exception;
+    public List<UploadFiles> getUploadList(int boardSeq) throws Exception;
 
-    public UploadFiles getUploadDetail(int img_seq) throws Exception;
+    public UploadFiles getUploadDetail(int imgSeq) throws Exception;
 
-    public int insertUpload(UploadFiles uploadFiles) throws Exception;
+    public int insertUpload(UploadFiles uploadFiles);
 
     public List<UploadFiles> getOldFiles();
 }

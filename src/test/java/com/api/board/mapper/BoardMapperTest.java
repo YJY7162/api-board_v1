@@ -29,7 +29,7 @@ public class BoardMapperTest {
 	@Autowired
 	BoardMapper boardMapper;
 	
-	int board_Seq = 0;
+	int boardSeq = 1;
 	
 	/** 게시글 목록 조회 시 NULL 아니면 테스트 통과 */
 	@Test
@@ -51,9 +51,9 @@ public class BoardMapperTest {
 
 		try {
 						
-			if(board_Seq != 0) {
+			if(boardSeq != 0) {
 				
-				Board boardDetail = boardMapper.getBoardDetail(board_Seq);
+				Board boardDetail = boardMapper.getBoardDetail(boardSeq);
 				assertNotNull(boardDetail);
 			}
 			
@@ -70,9 +70,9 @@ public class BoardMapperTest {
 		try {
 			
 			Board board = new Board();
-			board.setBoard_writer("게시글 작성자 등록");
-			board.setBoard_subject("게시글 제목 등록");
-			board.setBoard_content("게시글 내용 등록");			
+			board.setBoardWriter("게시글 작성자 등록");
+			board.setBoardSubject("게시글 제목 등록");
+			board.setBoardContent("게시글 내용 등록");
 				
 			int result = boardMapper.insertBoard(board);
 						
@@ -90,12 +90,12 @@ public class BoardMapperTest {
 
 		try {			
 						
-			if(board_Seq != 0) {
+			if(boardSeq != 0) {
 
 				Board board = new Board();
-				board.setBoard_seq(board_Seq);
-				board.setBoard_subject("게시글 제목 수정");
-				board.setBoard_content("게시글 내용 수정");
+				board.setBoardSeq(boardSeq);
+				board.setBoardSubject("게시글 제목 수정");
+				board.setBoardContent("게시글 내용 수정");
 				
 				int result = boardMapper.updateBoard(board);
 				assertTrue(result == 1);
@@ -113,10 +113,10 @@ public class BoardMapperTest {
 
 		try {
 					
-			if(board_Seq != 0) {
+			if(boardSeq != 0) {
 				
-				int result = boardMapper.deleteBoard(board_Seq);
-				assertTrue(result == 1);
+				Boolean result = boardMapper.deleteBoard(boardSeq);
+				assertTrue(result == true);
 			}
 			
 		} catch (Exception e) {

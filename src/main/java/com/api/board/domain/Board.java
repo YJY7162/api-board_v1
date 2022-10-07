@@ -17,36 +17,44 @@ import java.util.List;
 
 @ApiModel(value = "게시글 정보 : Board", description = "게시글 정보")
 @XmlRootElement(name = "board")
-@XmlType(propOrder = {"board_seq", "board_re_ref", "board_re_lev", "board_re_seq", "board_writer", "board_subject", "board_content", "board_hits", "del_yn", "ins_user_id", "ins_date", "upd_user_id", "upd_date"})
+@XmlType(propOrder = {"boardSeq", "boardReRef", "boardReLev", "boardReSeq", "boardWriter", "boardSubject",
+        "boardContent", "boardHits", "delYn", "insUserId", "insDate", "updUserId", "updDate"})
 @Getter @Setter @ToString
 public class Board {
 
 	@ApiModelProperty(value = "게시글 번호")
-    int board_seq;
+    int boardSeq;
     @ApiModelProperty(value = "게시글 그룹 번호")
-    int board_re_ref;
+    int boardReRef;
     @ApiModelProperty(value = "게시글 답변 글의 깊이")
-    int board_re_lev;
+    int boardReLev;
     @ApiModelProperty(value = "게시글 답변 글의 순서")
-    int board_re_seq;
+    int boardReSeq;
     @ApiModelProperty(value = "게시글 작성자")
-    String board_writer;
+    String boardWriter;
     @ApiModelProperty(value = "게시글 제목")
-    String board_subject;
+    String boardSubject;
     @ApiModelProperty(value = "게시글 내용")
-    String board_content;
+    String boardContent;
     @ApiModelProperty(value = "게시글 조회수")
-    int board_hits;
+    int boardHits;
     @ApiModelProperty(value = "게시글 삭제 유무")
-    String del_yn;
+    String delYn;
     @ApiModelProperty(value = "게시글 입력자 ID")
-    String ins_user_id;
+    String insUserId;
     @ApiModelProperty(value = "게시글 입력 일시")
-    String ins_date;
+    String insDate;
     @ApiModelProperty(value = "게시글 수정자 ID")
-    String upd_user_id;
+    String updUserId;
     @ApiModelProperty(value = "게시글 수정 일시")
-    String upd_date;
+    String updDate;
 
+    public Board(String boardWriter, String boardSubject, String boardContent) {
+        this.boardWriter = boardWriter;
+        this.boardSubject = boardSubject;
+        this.boardContent = boardContent;
+    }
 
+    public Board() {
+    }
 }

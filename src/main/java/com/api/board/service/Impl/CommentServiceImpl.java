@@ -13,7 +13,6 @@ import java.util.List;
 @Service
 @Log4j2
 public class CommentServiceImpl implements CommentService {
-
     @Autowired
     CommentMapper mapper;
 

@@ -4,7 +4,11 @@ import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.api.board.domain.BoardForm;
+import com.api.board.domain.UploadFiles;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -61,7 +65,7 @@ public class BoardControllerAsJsonTest {
         						 .build();
     }
     
-    int boardSeq = 0;
+    int boardSeq = 1;
     
     /** 게시글 목록 조회 시 응답 값이 200이면 테스트 통과 */
     @Test
@@ -105,14 +109,19 @@ public class BoardControllerAsJsonTest {
     @Test
     public void testInsertBoard() throws Exception {
  
-        Board insertBoard = new Board();
-        insertBoard.setBoard_writer("게시글 작성자 등록");
-        insertBoard.setBoard_subject("게시글 제목 등록");
-        insertBoard.setBoard_content("게시글 내용 등록");
+        BoardForm boardForm = new BoardForm();
+        boardForm.setBoardWriter("게시글 작성자 등록");
+        boardForm.setBoardSubject("게시글 제목 등록");
+        boardForm.setBoardContent("게시글 내용 등록");
+        List<UploadFiles> uploadFilesList = new ArrayList<>();
+        UploadFiles uploadFiles = new UploadFiles("test", "Test", "Test");
+        uploadFilesList.add(uploadFiles);
+
+        boardForm.setUploadFilesList(uploadFilesList);
  
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/boards")
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/boards/test")
         							 .contentType(MediaType.APPLICATION_JSON_VALUE)
-        							 .content(this.mapToJson(insertBoard)))
+        							 .content(this.mapToJson(boardForm)))
         							 .andReturn();
  
         assertEquals(201, mvcResult.getResponse().getStatus());
@@ -128,9 +137,9 @@ public class BoardControllerAsJsonTest {
     		if (boardSeq != 0) {
     		     
             	Board updateBoard = new Board();
-                updateBoard.setBoard_seq(boardSeq);
-                updateBoard.setBoard_subject("게시글 제목 수정");
-                updateBoard.setBoard_content("게시글 내용 수정");
+                updateBoard.setBoardSeq(boardSeq);
+                updateBoard.setBoardSubject("게시글 제목 수정");
+                updateBoard.setBoardContent("게시글 내용 수정");
          
                 MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.put("/boards/" + boardSeq)
                 							 .contentType(MediaType.APPLICATION_JSON_VALUE)

@@ -7,14 +7,12 @@ import java.util.List;
 
 public interface UploadService {
 
-    public List<UploadFiles> getUploadList(int board_seq) throws Exception;
+    public List<UploadFiles> getUploadList(int boardSeq) throws Exception;
 
-    public UploadFiles getUploadDetail(int img_seq) throws Exception;
+    public UploadFiles getUploadDetail(int imgSeq) throws Exception;
 
     /** 게시글 등록 */
-    public int insertUpload(UploadFiles uploadFiles) throws Exception;
+    public int insertUpload(UploadFiles uploadFiles);
 
     public List<UploadFiles> getOldFiles() throws Exception;
-
-
 }

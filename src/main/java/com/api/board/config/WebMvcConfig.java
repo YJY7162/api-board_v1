@@ -1,6 +1,7 @@
 package com.api.board.config;
 
 import com.api.board.interceptor.BoardInterceptor;
+import com.api.board.interceptor.LogInterceptor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -20,7 +21,8 @@ import org.springframework.web.servlet.config.annotation.ContentNegotiationConfi
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  
-@ComponentScan(basePackages = {"com.api.board.controller"}, useDefaultFilters = false, includeFilters = {@Filter(Controller.class), @Filter(ControllerAdvice.class)})
+@ComponentScan(basePackages = {"com.api.board.controller"}, useDefaultFilters = false,
+        includeFilters = {@Filter(Controller.class), @Filter(ControllerAdvice.class)})
 @ComponentScan(basePackages = {"com.api.board.task"})
 @EnableScheduling
 @Configuration
@@ -29,9 +31,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new BoardInterceptor())
+                .order(1)
         		.addPathPatterns("/**")
         		.excludePathPatterns("/sample/**");
+
+        registry.addInterceptor(new LogInterceptor())
+                .order(2)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/css/**", "*.ico", "/error", "/error-page/**");
     }
+
     
     @Bean
     public MappingJackson2HttpMessageConverter mappingJacksonHttpMessageConverter() {

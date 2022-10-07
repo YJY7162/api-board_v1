@@ -21,8 +21,17 @@ public class ViewTestController {
     }
 
     @GetMapping(value = "/testBoardContent")
-    public void testBoardContent(@RequestParam String board_seq) {
+    public void testBoardContent(@RequestParam String boardSeq) {
     	
+    }
+
+    @GetMapping(value = "/login/loginForm")
+    public void loginForm() {
+
+    }
+    @GetMapping(value = "/members/addMemberForm")
+    public void addMemberForm() {
+
     }
 
 

@@ -108,13 +108,13 @@ public class CommentControllerAsJsonTest {
             comment.setContent("test"+i);
 
             if(i <= 25){
-                comment.setBoard_seq(96);
+                comment.setBoardSeq(96);
             } else if (i <= 50) {
-                comment.setBoard_seq(97);
+                comment.setBoardSeq(97);
             } else if (i <= 75) {
-                comment.setBoard_seq(98);
+                comment.setBoardSeq(98);
             } else {
-                comment.setBoard_seq(99);
+                comment.setBoardSeq(99);
             }
 
             MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/comment")

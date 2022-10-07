@@ -19,3 +19,4 @@ public interface CommentMapper {
 
     public int getTotalCount (Criteria cri);
 }
+

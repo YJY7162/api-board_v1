@@ -5,53 +5,66 @@
 <mapper namespace="com.api.board.mapper.BoardMapper">
 
     <select id="getBoardList" resultType="com.api.board.domain.Board">
-        select * from board ORDER BY board_seq DESC
+        select board_seq as boardSeq, board_subject as boardSubject, board_writer as boardWriter, ins_date as insDate
+        from board
+        ORDER BY board_seq DESC
     </select>
 
     <select id="getBoardDetail" parameterType="int" resultType="com.api.board.domain.Board">
-        select * from board
-        WHERE BOARD_SEQ = #{board_seq}
+        select board_seq as boardSeq,
+               board_re_ref as boardReRef,
+               board_re_lev as boardReLev,
+               board_re_seq as boardReSeq,
+               board_writer as boardWriter,
+               board_subject as boardSubject,
+               board_content as boardContent,
+               ins_user_id as insUserId,
+               upd_user_id as updUserId,
+               board_hits as boardHits,
+               del_yn as delYn
+        from board
+        WHERE BOARD_SEQ = #{boardSeq}
     </select>
 
     <insert id="insertBoard" parameterType="com.api.board.domain.Board">
 
 
         insert into board (
-                           board_re_ref,
-                           board_re_lev,
-                           board_re_seq,
-                           board_writer,
-                           board_subject,
-                           board_content,
-                           ins_user_id,
-                           upd_user_id,
-                           board_hits,
-                           del_yn)
+                           board_re_ref ,
+                           board_re_lev ,
+                           board_re_seq ,
+                           board_writer ,
+                           board_subject ,
+                           board_content ,
+                           ins_user_id ,
+                           upd_user_id ,
+                           board_hits ,
+                           del_yn )
         values (
                 0
                , 0
                , 0
-               , #{board_writer}
-               , #{board_subject}
-               , #{board_content}
+               , #{boardWriter}
+               , #{boardSubject}
+               , #{boardContent}
                , 'TEST'
                , 'TEST'
                , 0
                , 'N'
                )
 
-        <selectKey resultType="int" keyProperty="board_seq" order="AFTER">
-            SELECT LAST_INSERT_ID()
+        <selectKey resultType="int" keyProperty="boardSeq" order="AFTER">
+            SELECT LAST_INSERT_ID() as boardSeq
         </selectKey>
     </insert>
 
     <delete id="updateBoard" parameterType="com.api.board.domain.Board">
 
         UPDATE BOARD
-        SET BOARD_SUBJECT = #{board_subject}
-          , BOARD_CONTENT = #{board_content}
+        SET BOARD_SUBJECT as boardSubject = #{boardSubject}
+          , BOARD_CONTENT as boardContent = #{boardContent}
           , UPD_USER_ID = 'TEST'
-        WHERE BOARD_SEQ = #{board_seq}
+        WHERE BOARD_SEQ as boardSeq = #{boardSeq}
 
     </delete>
 

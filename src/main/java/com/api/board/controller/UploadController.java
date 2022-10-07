@@ -7,6 +7,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
 import net.coobird.thumbnailator.Thumbnailator;
+
+import org.apache.tomcat.util.http.fileupload.impl.SizeLimitExceededException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -39,19 +41,15 @@ import java.util.UUID;
 @Api(tags = "업로드 API : Attach", description = "첨부파일 업로드, 첨부파일 조회, 첨부파일 삭제")
 public class UploadController {
 
-
     @Autowired
     private UploadService uploadService;
-
 
     @Value("${upload.path}")
     private String uploadPath;
 
-
     @ApiOperation(value = "첨부파일 업로드", notes = "첨부파일을 업로드 합니다.")
-    @PostMapping("/uploadAjax")
-    public ResponseEntity<List<UploadFiles>> upload(@RequestParam MultipartFile[] uploadFiles)
-            throws Exception {
+    @PostMapping("/uploadFiles")
+    public ResponseEntity<List<UploadFiles>> upload(@RequestParam MultipartFile[] uploadFiles) {
 
         List<UploadFiles> resultUploadList = new ArrayList<>();
 
@@ -67,7 +65,6 @@ public class UploadController {
             log.info("originalName : " + originalName);
             log.info("fileName " + fileName);
 
-
             String folderPath = makeFoler();
             String uuid = UUID.randomUUID().toString();
             String saveName = uploadPath + File.separator + folderPath + File.separator + uuid + "_" + fileName;
@@ -76,6 +73,7 @@ public class UploadController {
             try {
                 // 원본 파일 저장
                 file.transferTo(savaPath);
+                log.info("saveName = {}",saveName);
                 // 섬네일 생성 (섬네일 파일 이름은 중간에 "s_"로 시작하도록)
                 String thumbnailSaveName = uploadPath + File.separator + folderPath + File.separator
                         + "s_" + uuid + "_" + fileName;
@@ -84,8 +82,8 @@ public class UploadController {
                 UploadFiles attachDTO = new UploadFiles(fileName, uuid, folderPath);
                 resultUploadList.add(attachDTO);
             } catch (IOException e) {
-                e.printStackTrace();
-
+                log.info("ex", e);
+                throw new RuntimeException(e);
             }
         } // end for
         return new ResponseEntity<>(resultUploadList, HttpStatus.OK);
@@ -108,7 +106,6 @@ public class UploadController {
         }
         return folderpath;
     }
-
 
     @ApiOperation(value = "첨부파일 조회", notes = "첨부파일을 보여줍니다.")
     @GetMapping("/display")
@@ -150,7 +147,7 @@ public class UploadController {
             boolean result = file.delete();
             log.info(result);
 
-            File thumbnail = new File(file.getParent(), "s_"+file.getName());
+            File thumbnail = new File(file.getParent(), "s_" + file.getName());
             // getParent() - 현재 File 객체가 나타내는 파일의 디렉토리의 부모 디렉토리의 이름을 String 으로 리턴해준다.
             result = thumbnail.delete();
             return  new ResponseEntity<>(result, HttpStatus.OK);
@@ -160,16 +157,17 @@ public class UploadController {
         }
     }
 
-    @GetMapping(value="/uploadList/{board_seq}")
-    public ResponseEntity<UploadFilesList> getUploadFilesList (@PathVariable String board_seq) throws Exception {
+    @GetMapping(value= "/uploadList/{boardSeq}")
+    public ResponseEntity<UploadFilesList> getUploadFilesList(@PathVariable(name = "boardSeq") int boardSeq)
+            throws Exception {
         UploadFilesList uploadFilesList = new UploadFilesList();
-        uploadFilesList.setUploadFilesList(uploadService.getUploadList(Integer.parseInt(board_seq)));
+        uploadFilesList.setUploadFilesList(uploadService.getUploadList(boardSeq));
         return new ResponseEntity<>(uploadFilesList, HttpStatus.OK);
     }
     
-    @GetMapping("/download/{img_seq}")
-    public ResponseEntity<Resource> download(@PathVariable int img_seq) throws Exception {
-        UploadFiles uploadFiles = uploadService.getUploadDetail(img_seq);
+    @GetMapping("/download/{imgSeq}")
+    public ResponseEntity<Resource> download(@PathVariable int imgSeq) throws Exception {
+        UploadFiles uploadFiles = uploadService.getUploadDetail(imgSeq);
         UrlResource resource = new UrlResource("file:" + uploadPath + File.separator + 
         		uploadFiles.getFolderPath() + File.separator + uploadFiles.getUuid() + "_" + uploadFiles.getFileName());
         String encodedUploadFileName = UriUtils.encode(uploadFiles.getFileName(), StandardCharsets.UTF_8);

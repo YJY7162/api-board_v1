@@ -5,22 +5,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "error")
 public class ResponseError {
 
-	private int code;
+	private String  code;
 	private String message;
 
 	public ResponseError() {
 	}
 
-	public ResponseError(int code, String message) {
+	public ResponseError(String  code, String message) {
 		this.code = code;
 		this.message = message;
 	}
 
-	public int getCode() {
+	public String  getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(String  code) {
 		this.code = code;
 	}
 

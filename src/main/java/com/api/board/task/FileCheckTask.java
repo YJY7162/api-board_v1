@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
 @Log4j2
 @Component
 public class FileCheckTask {
-
     @Autowired
     private UploadService uploadService;
 
@@ -68,6 +67,5 @@ public class FileCheckTask {
 //            log.warn(file.getAbsolutePath());
             file.delete();
         }
-
     }
 }

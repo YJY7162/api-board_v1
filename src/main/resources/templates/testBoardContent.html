@@ -1,25 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<input type="hidden" name="board_seq" value=${param.board_seq}></input>
-	<h1>${param.board_seq}</h1>
+	<input type="hidden" name="boardSeq" th:value="${param.boardSeq}"></input>
+	<h1 th:text="${param.boardSeq}"></h1>
 	<div class = "uploadResult" id = "downFile">
 	</div>
 
 	<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
    		$(function(){
-        	let board_seq = $("[name='board_seq']").val();
-        	console.log(board_seq);
+        	let boardSeq = $("[name='boardSeq']").val();
+        	console.log(boardSeq);
         	$.ajax({
-            	url: "/boards/uploadList/"+board_seq,
+            	url: "/boards/uploadList/"+boardSeq,
             	method: "get",
             	dataType: "json",
             	success:function (data) {
@@ -32,7 +30,7 @@
 						output += "<div>";
                     	output += "<p>"+this.fileName+"</p>"
                     	output += "<img src='/boards/display/?fileName=" + this.thumbnailURL+"'>";
-                    	output += "<form action = 'boards/download/" + this.img_seq +"'>"
+                    	output += "<form action = 'boards/download/" + this.imgSeq +"'>"
                     	output += "<input type = 'submit' value = 'download'></input></form>"
                     	output += "</div>"
                     	

@@ -104,9 +104,9 @@ public class BoardControllerAsXmlTest {
     public void testInsertBoard() throws Exception {
  
         Board insertBoard = new Board();
-        insertBoard.setBoard_writer("게시글 작성자 등록");
-        insertBoard.setBoard_subject("게시글 제목 등록");
-        insertBoard.setBoard_content("게시글 내용 등록");
+        insertBoard.setBoardWriter("게시글 작성자 등록");
+        insertBoard.setBoardSubject("게시글 제목 등록");
+        insertBoard.setBoardContent("게시글 내용 등록");
  
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/board")
         							 .contentType(MediaType.APPLICATION_XML)
@@ -126,9 +126,9 @@ public class BoardControllerAsXmlTest {
     		if (boardSeq != 0) {
     		     
             	Board updateBoard = new Board();
-                updateBoard.setBoard_seq(boardSeq);
-                updateBoard.setBoard_subject("게시글 제목 수정");
-                updateBoard.setBoard_content("게시글 내용 수정");
+                updateBoard.setBoardSeq(boardSeq);
+                updateBoard.setBoardSubject("게시글 제목 수정");
+                updateBoard.setBoardContent("게시글 내용 수정");
          
                 MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.put("/board/" + boardSeq)
                 							 .contentType(MediaType.APPLICATION_XML)

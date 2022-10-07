@@ -10,4 +10,10 @@ public class UploadTestController {
 
         return "uploadForm";
     }
+
+    @GetMapping("/uploadTest")
+    public String uploadTest() {
+
+        return "uploadTest";
+    }
 }

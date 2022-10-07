@@ -14,7 +14,6 @@ import com.api.board.service.BoardService;
 @Transactional(readOnly = true)
 @Service
 public class BoardServiceImpl implements BoardService {
- 
     @Autowired
     private BoardMapper boardMapper;
  
@@ -24,13 +23,13 @@ public class BoardServiceImpl implements BoardService {
     }
  
     /** 게시글 상세 조회 */
-    public Board getBoardDetail(int board_seq) throws Exception {
-        return boardMapper.getBoardDetail(board_seq);
+    public Board getBoardDetail(int boardSeq) throws Exception {
+        return boardMapper.getBoardDetail(boardSeq);
     };
  
     /** 게시글 등록 */
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public int insertBoard(Board board) throws Exception {
+    public int insertBoard(Board board) {
         return boardMapper.insertBoard(board);
     };
  
@@ -42,7 +41,7 @@ public class BoardServiceImpl implements BoardService {
  
     /** 게시글 삭제 */
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public int deleteBoard(int board_seq) throws Exception {
-        return boardMapper.deleteBoard(board_seq);
+    public Boolean deleteBoard(int boardSeq) throws Exception {
+        return boardMapper.deleteBoard(boardSeq);
     };
 }

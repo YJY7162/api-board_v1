@@ -1866,7 +1866,7 @@
   <commands xmi:id="_oqSdnDN5Ee2rPOdiemn93A" elementId="org.eclipse.ui.edit.text.toMultiSelection" commandName="To multi-selection" description="Turn current selection into multiple text selections" category="_oqPaIDN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqSdnTN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.comment" commandName="Comment" description="Turn the selected lines into Java comments" category="_oqPaUTN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqSdnjN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.search.occurrences.in.file.quickMenu" commandName="Show Occurrences in File Quick Menu" description="Shows the Occurrences in File quick menu" category="_oqPaSjN5Ee2rPOdiemn93A"/>
-  <commands xmi:id="_oqSdnzN5Ee2rPOdiemn93A" elementId="org.eclipse.wst.jsdt.ui.edit.text.java.goto.next.member" commandName="Go to Next Member" description="Move the caret to the next member of the JavaScript file" category="_oqPaPzN5Ee2rPOdiemn93A"/>
+  <commands xmi:id="_oqSdnzN5Ee2rPOdiemn93A" elementId="org.eclipse.wst.jsdt.ui.edit.text.java.goto.next.user" commandName="Go to Next Member" description="Move the caret to the next user of the JavaScript file" category="_oqPaPzN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqSdoDN5Ee2rPOdiemn93A" elementId="org.eclipse.ui.edit.text.toggleInsertMode" commandName="Toggle Insert Mode" description="Toggle insert mode" category="_oqPaIDN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqSdoTN5Ee2rPOdiemn93A" elementId="org.eclipse.egit.ui.RepositoriesViewDelete" commandName="Delete Repository" category="_oqPaSzN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqSdojN5Ee2rPOdiemn93A" elementId="org.eclipse.ui.file.closePart" commandName="Close Part" description="Close the active workbench part" category="_oqPaKTN5Ee2rPOdiemn93A"/>
@@ -1984,7 +1984,7 @@
   <commands xmi:id="_oqUSrjN5Ee2rPOdiemn93A" elementId="org.eclipse.ui.ide.deleteCompleted" commandName="Delete Completed Tasks" description="Delete the tasks marked as completed" category="_oqPaNTN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqUSrzN5Ee2rPOdiemn93A" elementId="org.eclipse.wst.validation.ValidationCommand" commandName="Validate" description="Invoke registered Validators" category="_oqPaNTN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqUSsDN5Ee2rPOdiemn93A" elementId="org.eclipse.datatools.sqltools.sqleditor.debugAction" commandName="Debug" category="_oqPaTDN5Ee2rPOdiemn93A"/>
-  <commands xmi:id="_oqUSsTN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.add.javadoc.comment" commandName="Add Javadoc Comment" description="Add a Javadoc comment stub to the member element" category="_oqPaUTN5Ee2rPOdiemn93A"/>
+  <commands xmi:id="_oqUSsTN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.add.javadoc.comment" commandName="Add Javadoc Comment" description="Add a Javadoc comment stub to the user element" category="_oqPaUTN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqUSsjN5Ee2rPOdiemn93A" elementId="org.eclipse.egit.ui.RebaseInteractiveCurrent" commandName="Interactive Rebase" category="_oqPaNTN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqUSszN5Ee2rPOdiemn93A" elementId="org.eclipse.wst.jsdt.ui.correction.addCast" commandName="Quick Fix - Add cast" description="Invokes quick assist and selects 'Add cast'" category="_oqPaJDN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqUStDN5Ee2rPOdiemn93A" elementId="org.eclipse.ui.window.openEditorDropDown" commandName="Quick Switch Editor" description="Open the editor drop down list" category="_oqPaKTN5Ee2rPOdiemn93A"/>
@@ -2063,7 +2063,7 @@
     <parameters xmi:id="_oqVg5zN5Ee2rPOdiemn93A" elementId="org.eclipse.ui.ide.showInSystemExplorer.path" name="Resource System Path Parameter"/>
   </commands>
   <commands xmi:id="_oqVg6DN5Ee2rPOdiemn93A" elementId="org.eclipse.ui.edit.text.select.lineDown" commandName="Select Line Down" description="Extend the selection to the next line of text" category="_oqPaIjN5Ee2rPOdiemn93A"/>
-  <commands xmi:id="_oqVg6TN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.sort.members" commandName="Sort Members" description="Sort all members using the member order preference" category="_oqPaUTN5Ee2rPOdiemn93A"/>
+  <commands xmi:id="_oqVg6TN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.sort.members" commandName="Sort Members" description="Sort all members using the user order preference" category="_oqPaUTN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqVg6jN5Ee2rPOdiemn93A" elementId="org.eclipse.ui.edit.text.lowerCase" commandName="To Lower Case" description="Changes the selection to lower case" category="_oqPaIjN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqVg6zN5Ee2rPOdiemn93A" elementId="org.eclipse.datatools.connectivity.commands.addprofile" commandName="New Connection Profile Command" description="Command to create a new connection profile" category="_oqPaNTN5Ee2rPOdiemn93A">
     <parameters xmi:id="_oqVg7DN5Ee2rPOdiemn93A" elementId="org.eclipse.datatools.connectivity.ui.ignoreCategory" name="ignoreCategory"/>
@@ -2115,7 +2115,7 @@
   <commands xmi:id="_oqWH8TN5Ee2rPOdiemn93A" elementId="org.eclipse.eclemma.ui.swtBotJunitShortcut.coverage" commandName="Coverage SWTBot Test" description="Coverage SWTBot Test" category="_oqPaLTN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqWH8jN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.show.outline" commandName="Quick Outline" description="Show the quick outline for the editor input" category="_oqPaPzN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqWH8zN5Ee2rPOdiemn93A" elementId="org.eclipse.jst.jsp.ui.refactor.move" commandName="Move" description="Move a Java Element to another package" category="_oqPaIDN5Ee2rPOdiemn93A"/>
-  <commands xmi:id="_oqWH9DN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.goto.next.member" commandName="Go to Next Member" description="Move the caret to the next member of the compilation unit" category="_oqPaPzN5Ee2rPOdiemn93A"/>
+  <commands xmi:id="_oqWH9DN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.goto.next.user" commandName="Go to Next Member" description="Move the caret to the next user of the compilation unit" category="_oqPaPzN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqWH9TN5Ee2rPOdiemn93A" elementId="org.eclipse.ui.project.rebuildProject" commandName="Rebuild Project" description="Rebuild the selected projects" category="_oqPaRzN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqWH9jN5Ee2rPOdiemn93A" elementId="org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn" commandName="Paste" category="_oqPaQzN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqWH9zN5Ee2rPOdiemn93A" elementId="org.eclipse.m2e.core.pomFileAction.run" commandName="Run Maven Build" description="Run Maven Build" category="_oqPaLTN5Ee2rPOdiemn93A"/>
@@ -2173,7 +2173,7 @@
   <commands xmi:id="_oqWIKTN5Ee2rPOdiemn93A" elementId="org.eclipse.lsp4e.showkindinoutline" commandName="Show Kind in Outline" category="_oqPaQDN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqWIKjN5Ee2rPOdiemn93A" elementId="org.eclipse.ui.file.close" commandName="Close" description="Close the active editor" category="_oqPaJzN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqWIKzN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.surround.with.try.catch" commandName="Surround with try/catch Block" description="Surround the selected text with a try/catch block" category="_oqPaUTN5Ee2rPOdiemn93A"/>
-  <commands xmi:id="_oqWu4DN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.goto.previous.member" commandName="Go to Previous Member" description="Move the caret to the previous member of the compilation unit" category="_oqPaPzN5Ee2rPOdiemn93A"/>
+  <commands xmi:id="_oqWu4DN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.edit.text.java.goto.previous.user" commandName="Go to Previous Member" description="Move the caret to the previous user of the compilation unit" category="_oqPaPzN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqWu4TN5Ee2rPOdiemn93A" elementId="org.eclipse.egit.ui.history.Reset" commandName="Reset..." category="_oqPaNTN5Ee2rPOdiemn93A">
     <parameters xmi:id="_oqWu4jN5Ee2rPOdiemn93A" elementId="org.eclipse.egit.ui.history.ResetMode" name="Reset mode" optional="false"/>
   </commands>
@@ -2300,7 +2300,7 @@
   <commands xmi:id="_oqYkNDN5Ee2rPOdiemn93A" elementId="org.eclipse.egit.ui.team.Pull" commandName="Pull" category="_oqPaSzN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqYkNTN5Ee2rPOdiemn93A" elementId="org.eclipse.ui.edit.text.swap.mark" commandName="Swap Mark" description="Swap the mark with the cursor position" category="_oqPaIjN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqYkNjN5Ee2rPOdiemn93A" elementId="org.eclipse.jdt.ui.correction.addCast" commandName="Quick Fix - Add cast" description="Invokes quick assist and selects 'Add cast'" category="_oqPaUTN5Ee2rPOdiemn93A"/>
-  <commands xmi:id="_oqYkNzN5Ee2rPOdiemn93A" elementId="org.eclipse.wst.jsdt.ui.edit.text.java.add.javadoc.comment" commandName="Add JSDoc Comment" description="Add a JSDoc comment stub to the member element" category="_oqPaJDN5Ee2rPOdiemn93A"/>
+  <commands xmi:id="_oqYkNzN5Ee2rPOdiemn93A" elementId="org.eclipse.wst.jsdt.ui.edit.text.java.add.javadoc.comment" commandName="Add JSDoc Comment" description="Add a JSDoc comment stub to the user element" category="_oqPaJDN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqYkODN5Ee2rPOdiemn93A" elementId="org.eclipse.egit.ui.RepositoriesViewConfigureFetch" commandName="Configure Fetch..." category="_oqPaSzN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqYkOTN5Ee2rPOdiemn93A" elementId="org.eclipse.pde.api.tools.ui.convert.javadocs" commandName="Convert API Tools &amp;Javadoc Tags..." description="Starts a wizard that will allow you to convert existing Javadoc tags to annotations" category="_oqPaNTN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqYkOjN5Ee2rPOdiemn93A" elementId="org.eclipse.egit.ui.RepositoriesViewShowInSystemExplorer" commandName="Show In System Explorer" category="_oqPaSzN5Ee2rPOdiemn93A"/>
@@ -2726,7 +2726,7 @@
     <parameters xmi:id="_oqgf7jN5Ee2rPOdiemn93A" elementId="filePath" name="File Path" typeId="org.eclipse.ui.ide.resourcePath"/>
   </commands>
   <commands xmi:id="_oqgf7zN5Ee2rPOdiemn93A" elementId="org.eclipse.wst.jsdt.ui.correction.addBlock.assist" commandName="Quick Assist - Replace statement with block" description="Invokes quick assist and selects 'Replace statement with block'" category="_oqPaJDN5Ee2rPOdiemn93A"/>
-  <commands xmi:id="_oqgf8DN5Ee2rPOdiemn93A" elementId="org.eclipse.wst.jsdt.ui.edit.text.java.goto.previous.member" commandName="Go to Previous Member" description="Move the caret to the previous member of the JavaScript file" category="_oqPaPzN5Ee2rPOdiemn93A"/>
+  <commands xmi:id="_oqgf8DN5Ee2rPOdiemn93A" elementId="org.eclipse.wst.jsdt.ui.edit.text.java.goto.previous.user" commandName="Go to Previous Member" description="Move the caret to the previous user of the JavaScript file" category="_oqPaPzN5Ee2rPOdiemn93A"/>
   <commands xmi:id="_oqgf8TN5Ee2rPOdiemn93A" elementId="org.springframework.tooling.ls.eclipse.commons.commands.OpenJavaElementInEditor" commandName="Open Java Element in Editor" category="_oqPaNTN5Ee2rPOdiemn93A">
     <parameters xmi:id="_oqhG8DN5Ee2rPOdiemn93A" elementId="bindingKey" name="bindingKey" optional="false"/>
     <parameters xmi:id="_oqhG8TN5Ee2rPOdiemn93A" elementId="projectName" name="projectName" optional="false"/>

@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">BOARD</div>
+        <div class="panel-body">
+            <table id="table">
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(function(){
+        let boardList = null;
+        $.ajax({
+            url: "/boards",
+            method: "get",
+            dataType: "json",
+            success:function (data) {
+                boardList = data.boards;
+
+                let output = '<tr> <td>번호</td> <td>제목</td> <td>작성자</td> <td>작성일</td> </tr>';
+                $.each(boardList, function () {
+
+                    output += '<tr>'
+                    output += '<td>' + this.boardSeq + '</td>'
+                    output += "<td><a href='/testBoardContent?boardSeq="+this.boardSeq+"'>" + this.boardSubject + "</td>"
+                    output += '<td>' + this.boardWriter + '</td>'
+                    output += '<td>' + this.insDate + '</td>'
+                    output += '</tr>'
+                });
+                document.getElementById('table').innerHTML = output;
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus);
+            }
+        })
+    });
+
+</script>
+</body>
+</html>

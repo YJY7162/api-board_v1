@@ -68,9 +68,9 @@ public class BoardServiceTest {
 		try {
 
 			Board board = new Board();
-			board.setBoard_writer("게시글 작성자 등록");
-			board.setBoard_subject("게시글 제목 등록");
-			board.setBoard_content("게시글 내용 등록");
+			board.setBoardWriter("게시글 작성자 등록");
+			board.setBoardSubject("게시글 제목 등록");
+			board.setBoardContent("게시글 내용 등록");
 
 			int result = boardService.insertBoard(board);
 
@@ -91,9 +91,9 @@ public class BoardServiceTest {
 			if (boardSeq != 0) {
 
 				Board board = new Board();
-				board.setBoard_seq(boardSeq);
-				board.setBoard_subject("게시글 제목 수정");
-				board.setBoard_content("게시글 내용 수정");
+				board.setBoardSeq(boardSeq);
+				board.setBoardSubject("게시글 제목 수정");
+				board.setBoardContent("게시글 내용 수정");
 
 				int result = boardService.updateBoard(board);
 				assertTrue(result == 1);
@@ -113,8 +113,8 @@ public class BoardServiceTest {
 
 			if (boardSeq != 0) {
 
-				int result = boardService.deleteBoard(boardSeq);
-				assertTrue(result == 1);
+				Boolean result = boardService.deleteBoard(boardSeq);
+				assertTrue(result == true);
 			}
 
 		} catch (Exception e) {

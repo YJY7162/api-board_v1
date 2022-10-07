@@ -68,8 +68,7 @@ public class CommentController {
 
     // 삭제
     @DeleteMapping("/{commentId}")
-
-    public ResponseEntity<String> removeCommnet (@PathVariable ("commentId") int commentId) {
+    public ResponseEntity<String> removeComment (@PathVariable ("commentId") int commentId) {
         log.info("remove : " + commentId);
 
         return service.remove(commentId)? new ResponseEntity<>("success", HttpStatus.OK)

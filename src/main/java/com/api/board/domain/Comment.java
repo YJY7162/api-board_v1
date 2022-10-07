@@ -10,5 +10,5 @@ import lombok.ToString;
 public class Comment {
     private int commentId;
     private String content;
-    private int board_seq;
+    private int boardSeq;
 }

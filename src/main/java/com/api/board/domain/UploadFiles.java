@@ -16,7 +16,7 @@ import java.net.URLEncoder;
 @Data
 public class UploadFiles {
     @ApiModelProperty(value = "첨부파일 번호")
-    private int img_seq;
+    private int imgSeq;
     @ApiModelProperty(value = "첨부파일 이름")
     private String fileName;
     @ApiModelProperty(value = "첨부파일 UUID")
@@ -24,8 +24,7 @@ public class UploadFiles {
     @ApiModelProperty(value = "첨부파일 폴더경로")
     private String folderPath;
     @ApiModelProperty(value = "첨부파일 게시글 번호")
-    private int board_seq;
-
+    private int boardSeq;
 
     public UploadFiles() {
 
@@ -41,7 +40,7 @@ public class UploadFiles {
     public String getImageURL() {
         try{
             return URLEncoder.encode(folderPath+"/"+uuid+"_"+fileName, "UTF-8");
-        }catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return "";
@@ -51,14 +50,15 @@ public class UploadFiles {
     public String getThumbnailURL() {
         try{
             return URLEncoder.encode(folderPath+"/s_"+uuid+"_"+fileName, "UTF-8");
-        }catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return "";
     }
 
     public String toString(){
-        return "UploadFiles[img_seq=" + img_seq + ", fileName=" + fileName + ", uuid=" + uuid + ", folderPath=" + folderPath + "]";
+        return "UploadFiles[img_seq=" + imgSeq + ", fileName=" + fileName +
+                ", uuid=" + uuid + ", folderPath=" + folderPath + "]";
     }
 
 

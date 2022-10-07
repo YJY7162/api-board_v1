@@ -25,7 +25,8 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
         											  .produces(getProduceContentTypes())
         											  .apiInfo(getApiInfo())
         											  .select()
-        											  .apis(RequestHandlerSelectors.basePackage("com.api.board.controller"))
+        											  .apis(RequestHandlerSelectors
+                                                              .basePackage("com.api.board.controller"))
         											  .paths(PathSelectors.ant("/board/**"))
         											  .build();
     }

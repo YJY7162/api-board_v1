@@ -5,17 +5,19 @@
 <mapper namespace="com.api.board.mapper.UploadMapper">
 
     <select id="getUploadList" resultType="com.api.board.domain.UploadFiles">
-        select * from attach where board_seq = #{board_seq}
+        select img_seq as imgSeq, fileName, uuid, folderPath, board_seq as boardSeq
+        from attach where board_seq = #{boardSeq}
     </select>
 
     <select id="getUploadDetail" parameterType="int" resultType="com.api.board.domain.UploadFiles">
-        select * from attach
-        WHERE img_seq = #{img_seq}
+        select img_seq as imgSeq, fileName, uuid, folderPath, board_seq as boardSeq
+        from attach
+        WHERE img_seq = #{imgSeq}
     </select>
 
     <insert id="insertUpload" parameterType="com.api.board.domain.UploadFiles">
         insert into attach (fileName, uuid, folderPath, board_seq)
-        values (#{fileName}, #{uuid}, #{folderPath}, #{board_seq})
+        values (#{fileName}, #{uuid}, #{folderPath}, #{boardSeq})
     </insert>
 
     <select id="getOldFiles" resultType="com.api.board.domain.UploadFiles">
