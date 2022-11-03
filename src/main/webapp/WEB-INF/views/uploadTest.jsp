@@ -1,26 +1,31 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
 
-    <input type="text" name="boardWriter" placeholder="작성자"><br>
-    <input type="text" name="boardSubject" placeholder="제목 입력"><br>
-    <input type="text" name="boardContent" placeholder="내용 입력"><br>
+<%--<form action="board" method="post" enctype="multipart/form-data">--%>
+    <input type="text" name="board_writer" placeholder="작성자"><br>
+    <input type="text" name="board_subject" placeholder="제목 입력"><br>
+    <input type="text" name="board_content" placeholder="내용 입력"><br>
     <input type="file" name="uploadFiles" multiple="multiple">
     <button id="uploadBtn">Upload</button><br>
     <div class="uploadResult">
 
     </div>
+    <input type="hidden" id="requestVO" value="">
     <button id="insertBtn">입력</button>
+<%--</form>--%>
 
 
-
-
+<%--        <script type="text/javascript" src="/webjars/jquery/3.6.0/jquery.min.js">--%>
+<%--        </script>--%>
         <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
             let uploadFiles = null;
@@ -59,44 +64,26 @@
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.log(textStatus);
                     }
-                }); //$.ajax//
+                }); //$.ajax
             });
 
             $("#insertBtn").click(function ( ) {
 
-                let boardWriter = $("[name='boardWriter']").val();
-                let boardSubject = $("[name='boardSubject']").val();
-                let boardContent = $("[name='boardContent']").val();
-                console.log(boardWriter);
-                console.log(boardSubject);
-                console.log(boardContent);
+                let board_writer = $("[name='board_writer']").val();
+                let board_subject = $("[name='board_subject']").val();
+                let board_content = $("[name='board_content']").val();
+                console.log(board_writer);
+                console.log(board_subject);
+                console.log(board_content);
                 let uploadFilesList = uploadFiles;
                 let boardForm = JSON.stringify({
-                    'boardWriter' : boardWriter,
-                    'boardSubject' : boardSubject,
-                    'boardContent' : boardContent,
+                    'board_writer' : board_writer,
+                    'board_subject' : board_subject,
+                    'board_content' : board_content,
                     'uploadFilesList' : uploadFilesList
                 });
 
                 console.log(boardForm);
-                if (!boardWriter) {
-                    alert("작성자를 입력하세요")
-                }
-                if (!boardSubject) {
-                    alert("제목을 입력하세요")
-                }
-                if (!boardContent) {
-                    alert("내용을 입력하세요")
-                }
-                if (boardWriter.length > 10) {
-                    alert("작성자를 10자 이하로 입력하세요")
-                }
-                if (boardSubject.length > 75) {
-                    alert("작성자를 75자 이하로 입력하세요")
-                }
-                if (boardContent.length > 1000) {
-                    alert("작성자를 1000자 이하로 입력하세요")
-                }
 
 
 
